@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="index_js_and_css/mortgage calculator.css">
+
+    </style>
+</head>
+<body>
+<div class="wrap">
+<header class="header header_lg">
+<div class="header-bg">
+</div>
+<div class="container">
+
+<h1 class="h1 header__h1 white-text center">
+ Mortgage Calculator
+</h1>
+<div class="header-text header__header-text">
+</div>
+</div>
+</header>
+<div class="calc">
+<div class="container">
+<div class="calc__content box box_mg" style="padding-bottom: 70px;">
+<div class="mg">
+<div class="content mg__content">
+<form id="mg-form" class="form form_column mg__form">
+<div class="form__row">
+<div class="form__block">
+<div class="form__title">
+Home price
+<span class="tooltip-icon xs" data-placement="right" data-toggle="tooltip" title="" data-original-title="The price of the property to be purchased in dollars"></span>
+</div>
+<label class="field-group field-group_grey">
+<span class="field-group__symbol ">$</span>
+<span class="field-group__symbol-sep"></span>
+<input class="field grow1" id="homeValue" type="text" value="260,000" data-format="decimal-locate" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
+</label>
+</div>
+</div>
+<div class="form__row">
+<div class="form__column_46">
+<div class="form__block">
+<div class="form__title">
+Down payment
+<span class="tooltip-icon xs" data-placement="right" data-toggle="tooltip" title="" data-original-title="This is part of the value of the real estate purchased on
+                                                      credit, which the borrower must pay independently to the seller of
+                                                      housing. The rest of the bank issues in the form of a mortgage loan.
+                                                      In the US the down payments vary between 4% and 20% of the price.
+                                                      The initial payment for at least 20% typically allows avoid paying
+                                                      mortgage insurance."></span>
+</div>
+<div class="field-group field-group_grey">
+<label class="field-group__label grow1">
+<span class="field-group__symbol">$</span>
+<span class="field-group__symbol-sep"></span>
+<input class="field" id="downPayment" type="text" value="52,000">
+</label>
+<label class="field-group__label field-group__label_sm">
+<span class="field-group__sep field-group__sep_grey"></span>
+<span class="field__wrap">
+<input class="field field_height-100" id="downPaymentPerc" type="text" value="20">
+</span>
+<span class="field-group__symbol">%</span>
+</label>
+</div>
+ </div>
+<div class="form__block">
+<div class="form__title">
+Mortgage term
+<span class="tooltip-icon xs" data-placement="right" data-toggle="tooltip" title="" data-original-title="Mortgage term is the length of the mortgage you're planning.
+                                                      Choose from 30-year fixed or 15-year fixed. Your mortgage term can
+                                                      affect interest rate and monthly payments."></span>
+</div>
+<div class="field-group field-group_grey">
+<label class="field-group__label">
+<span class="field__wrap">
+<input class="field field_height-100" id="mortgageTerm" type="text" value="30">
+</span>
+<span class="field-group__symbol">years</span>
+</label>
+<label class="field-group__label field-group__label_sm">
+<span class="field-group__sep field-group__sep_grey"></span>
+<span class="field__wrap">
+<input class="field field_height-100" id="mortgageTermMonths" type="text" value="360" data-format="num">
+</span>
+<span class="field-group__symbol">months</span>
+</label>
+</div>
+</div>
+</div>
+<div class="form__column form__column_46 form__column_inline">
+<div class="form__block form__block_46">
+<div class="form__title">
+Interest rate
+<span class="tooltip-icon xs" data-placement="right" data-toggle="tooltip" title="" data-original-title="This field is filled with the current average mortgage rate.
+                                                      Your real rate will vary based on credit score and down payment."></span>
+</div>
+<label class="field-group field-group_grey">
+<input class="field grow1" id="interestRate" type="text" value="4.05" data-format="decimal3">
+<span class="field-group__symbol-sep"></span>
+<span class="field-group__symbol ">%</span>
+</label>
+</div>
+<div class="form__block form__block_46">
+<div class="form__title form__title_heightfix"></div>
+<div class="btn btn_blue" id="calculateBtn">calculate</div>
+</div>
+</div>
+</div>
+</form>
+<form id="extraPaymentsForm" class="form form_column extra-payments">
+<div class="btn btn_link extra-payments__opener" id="addExtraPayments">
+Add extra payments
+</div>
+
+
+
+<div class="extra-payments__content" id="extraPaymentsContent">
+<div class="extra-payments__text">
+<h3 class="h3 extra-payments__h3">Add extra payments:</h3>
+<p class="p">Find out how making extra payments can help you pay off your house quicker.</p>
+
+</div>
+<div class="form__row form__row_inline">
+<div class="form__block form__block_46">
+<div class="form__title">
+To monthly mortgage payment
+</div>
+<label class="field-group field-group_grey">
+<span class="field-group__symbol ">$</span>
+<span class="field-group__symbol-sep"></span>
+<input class="field grow1" id="extraMonthly" type="text" value="0" data-format="decimal-locate">
+</label>
+</div>
+<div class="form__block form__block_46">
+<div class="form__text"></div>
+</div>
+</div>
+<div class="form__row form__row_inline">
+<div class="form__block form__block_46">
+<div class="form__title">
+Extra yearly mortgage payment
+</div>
+<label class="field-group field-group_grey">
+<span class="field-group__symbol ">$</span>
+<span class="field-group__symbol-sep"></span>
+<input class="field grow1" id="extraYeary" type="text" value="0" data-format="decimal-locate">
+</label>
+</div>
+<div class="form__block form__block_46">
+<div class="form__title">
+Occurring every
+</div>
+<select class="field field_grey field_pad" id="extraYearyMonth">
+<option value="0">January</option>
+<option value="1">February</option>
+<option value="2">March</option>
+<option value="3">April</option>
+<option value="4">May</option>
+<option value="5">June</option>
+<option value="6">July</option>
+<option value="7">August</option>
+<option value="8">September</option>
+<option value="9">October</option>
+<option value="10">November</option>
+<option value="11">December</option>
+</select>
+</div>
+</div>
+<div class="form__row form__row_inline">
+<div class="form__block form__block_46">
+<div class="form__title">
+One-time mortgage payment
+</div>
+<label class="field-group field-group_grey">
+<span class="field-group__symbol ">$</span>
+<span class="field-group__symbol-sep"></span>
+<input class="field grow1" id="extraOneTime" type="text" value="0" data-format="decimal-locate">
+</label>
+</div>
+<div class="form__block form__block_46">
+<div class="form__title">
+In
+</div>
+<div class="select-group select-group_grey" style="padding-right: 0px;">
+<select class="field grow4 field_left-pad" id="extraOneTimeMonth">
+<option value="0">January</option>
+<option value="1">February</option>
+<option value="2">March</option>
+<option value="3">April</option>
+<option value="4">May</option>
+<option value="5">June</option>
+<option value="6">July</option>
+<option value="7">August</option>
+<option value="8">September</option>
+<option value="9">October</option>
+<option value="10">November</option>
+<option value="11">December</option>
+</select>
+<div class="field-group__sep field-group__sep_grey"></div>
+<select class="field grow3 field_right-pad" id="extraOneTimeYear">
+<option value="2018">2018</option>
+<option value="2019">2019</option>
+<option value="2020">2020</option>
+<option value="2021">2021</option>
+<option value="2022">2022</option>
+<option value="2023">2023</option>
+<option value="2024">2024</option>
+<option value="2025">2025</option>
+<option value="2026">2026</option>
+<option value="2027">2027</option>
+<option value="2028">2028</option>
+<option value="2029">2029</option>
+<option value="2030">2030</option>
+<option value="2031">2031</option>
+<option value="2032">2032</option>
+<option value="2033">2033</option>
+<option value="2034">2034</option>
+<option value="2035">2035</option>
+<option value="2036">2036</option>
+<option value="2037">2037</option>
+<option value="2038">2038</option>
+<option value="2039">2039</option>
+<option value="2040">2040</option>
+<option value="2041">2041</option>
+<option value="2042">2042</option>
+<option value="2043">2043</option>
+<option value="2044">2044</option>
+<option value="2045">2045</option>
+<option value="2046">2046</option>
+<option value="2047">2047</option>
+<option value="2048">2048</option>
+<option value="2049">2049</option>
+<option value="2050">2050</option>
+<option value="2051">2051</option>
+<option value="2052">2052</option>
+<option value="2053">2053</option>
+<option value="2054">2054</option>
+<option value="2055">2055</option>
+<option value="2056">2056</option>
+<option value="2057">2057</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+</form>
+<div class="mg-result">
+<div class="mg-result__container">
+<div class="mg-result__row">
+<table class="mg-result-table">
+<tbody>
+<tr>
+<td>Monthly Principal &amp; Interest</td>
+<td class="right">$<span id="resMonthlyPrincipalAndInterest">999.03</span></td>
+</tr>
+<tr>
+<td>Monthly Extra Payment</td>
+<td class="right">$<span id="resMonthlyExtraPayment">0.00</span></td>
+ </tr>
+<tr class="mg-result-table__tr mg-result-table_top-border">
+<td class="mg-result-table__total-payment-text">Estimated monthly payment</td>
+<td class="mg-result-table__total-payment-value right" style="padding-top: 10px;">$<span id="totalMonthlyPayment">999.03</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="mg-result__container">
+<div class="mg-result__row mg-result__mg-result__row">
+<div class="doughnut-container"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+<canvas id="doughnut" width="200" height="166" class="chartjs-render-monitor" style="display: block; width: 200px; height: 166px;"></canvas>
+</div>
+<div class="mg-result__container grow1">
+<table class="mg-result-table ">
+<tbody id="mg-table">
+<tr>
+<td><div class="square square_rounded square_red"></div></td>
+<td>Down payment</td>
+<td class="right">
+$<span id="resDownPayment">52,000.00</span>
+</td>
+</tr>
+<tr>
+<td> <div class="square square_rounded square_yellow"></div></td>
+<td>Extra payments</td>
+<td class="right">
+$<span id="resExtraPayments">0.00</span>
+</td>
+</tr>
+<tr>
+<td><div class="square square_rounded square_green"></div></td>
+<td>Total principal paid</td>
+<td class="right">
+$<span id="totalPrincipalPaid">208,000.00</span>
+</td>
+</tr>
+<tr>
+<td><div class="square square_rounded square_orange"></div></td>
+<td>Total interest paid</td>
+<td class="right">
+$<span id="totalInterestPaid">151,650.40</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="mg-result__row" style="margin-top: 4px;">
+<table class="mg-result-table ">
+<tbody><tr class="mg-result-table__tr mg-result-table_top-border">
+<td></td>
+<td class="mg-result-table__total-payment-text">Total of all payments</td>
+<td class="mg-result-table__total-payment-value right">
+$<span id="totalPayment">411,650.40</span></td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+</div>
+<div class="adverts-main">
+</div>
+</div>
+<div class="calc-links">
+
+<div class="calc-links__container sharelink-visible">
+
+
+<input class="calc-links__share-field" id="sharelinkField" type="text" value="">
+
+<div class="calc-links__item calc-links__share" style="opacity: 1;">
+</div>
+<div class="calc-links__item calc-links__schedule" style="opacity: 1;">
+<div class="btn btn_border-grey btn_sm btn_240 showSchedule-link" id="showAmortSchedule">
+<span>Show</span> amortization schedule
+</div>
+</div>
+<div class="calc-links__item calc-links__pdf" style="opacity: 1;">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="chart2" style="padding: 5px 0; margin-top: 60px;">
+<div class="container">
+<div class="chart2__content">
+<canvas id="barChart" width="400" height="150"></canvas>
+
+</div>
+</div>
+</div>
+<div class="schedule" id="scheduleContainer">
+<div class="container">
+<div class="schedule__content amortization-schedule box2">
+<div class="amortization-schedule__header">
+<div class="amortization-schedule__block">
+<div class="amortization-schedule__h">Start Date</div>
+
+<input type="text" class="field field_grey amortization-schedule__date-input datepicker " id="scheduleDatepicker">
+
+</div>
+<div class="amortization-schedule__block">
+<div class="amortization-schedule__h right">Estimated Payoff Date</div>
+<div class="amortization-schedule__payoff-date" id="schedulePayoffDate"></div>
+</div>
+</div>
+<h2 class="amortization-schedule__h2 h3">Amortization Schedule</h2>
+<table class="amortization-schedule__table">
+<thead>
+<tr class="" id="scheduleTheadTr">
+<td class="left">Payment Date</td>
+<td class="th-annuent">Payment  </td>
+<td>Principal</td>
+<td>Interest</td>
+<td class="th-total-interest">Total Interest</td>
+<td>Balance</td>
+</tr>
+</thead>
+<tbody id="amoSchedule">
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div class="help grey-block">
+
+</div>
+<article class="white-block">
+
+</article>
+
+</div>
+<script src="https://mortgage-advice-online.org/js/dist/calcMortgage.min.js"></script>
+</body>
+</html>

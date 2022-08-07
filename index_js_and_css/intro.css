@@ -1,0 +1,59 @@
+.video {
+        margin-top: 20%;
+        height: 40vh;
+        margin-left: 30%;
+        width: 25%;    
+        
+    }
+@media only screen and (min-width: 400px) {
+  .video {
+        margin-top: 45%;
+        height: 40vh;
+        margin-left: 40%;
+        width: 25%;    
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .video {
+        margin-top: 45%;
+        height: 40vh;
+        margin-left: 35%;
+        width: 30%;    
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .video {
+        margin-top: 20%;
+        height: 50vh;
+        margin-left: 30%;
+        width: 45%;
+    
+  }
+} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .video {
+        margin-top: 20%;
+        height: 30vh;
+        margin-left: 37%;
+        width: 25%;
+  }
+} 
+
+
+ 
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .video {
+        margin-top: 18%;
+        height: 30vh;
+        margin-left: 37%;
+        width: 25%;
+    }
+}
+
+
